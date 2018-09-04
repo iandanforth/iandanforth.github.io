@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Fetchcore - Ian Danforth
+        </title>
+        <meta name="description" content="Project description of the development
+        of the Fetch Robotics Fetchcore cloud robotics service.">
+        <style type="text/css">
+            body {
+                margin: 40px auto;
+                max-width: 650px;
+                line-height: 1.6;
+                font-size: 18px;
+                color: #444;
+                padding: 0 10px;
+            }
+            a { color: #444; }
+            footer { font-size: 16px; }
+            h1, h2, h3 { line-height: 1.2; }
+        </style>
+        <link rel="manifest" href="manifest.json" />
+        <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    </head>
+    <body>
+    <header>
+        <h1>Fetchcore</h1>
+    </header>
+    <hr>
+    <iframe width="620" height="349" src="https://www.youtube-nocookie.com/embed/bz5iOAF7Uno?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <p>
+        Melonee Wise (Fetch CEO) demos Fetchcore live at ProMat 2017.
+    </p>
+    <h2>Design</h2>
+    <img src="images/fetchcore-v1-design.png"/>
+    <p>
+        The very first incarnation of Fetchcore circa 2015.
+    </p>
+    <p>
+        <strong>Fetchcore</strong> was designed to make directing a fleet of
+        robots easy. Where other systems were slow to set up and required
+        significant training or programming to use, Fetchcore was intended for
+        busy warehouse managers. It was also designed to be a near real-time
+        system such that you could watch and direct robots live in your 
+        warehouses. In addition it was designed with an eye to providing
+        significant functionality even on mobile devices. 
+    </p>
+    <p>
+        From the beginning Fetchcore was seen as an important differentiator 
+        between Fetch and its competitors. After we successfully secured a $20M 
+        funding round led by <a href="https://www.softbank.jp/en/">Softbank</a>
+        we started a major revision to the UI.
+    </p>
+    <img src="images/fetchcore-wireframes-02.png"/>
+    <p>
+        I made initial wireframes using <a href="https://balsamiq.com/">Balsamiq</a> 
+        which layed out page structure, expected workflows, error conditions, 
+        and details of user interaction. In conjunction with our talented 
+        designer <a href="https://www.linkedin.com/in/ddymesich/">David Dymesich</a>
+        these were then converted into mockups and tested internally with
+        select users, refined and then implemented.
+    </p>
+    <h2>Implementation</h2>
+    <p>
+        Fetchcore was designed as a mobile friendly React application built
+        around a core real-time map component. In addition to visualizing the
+        current location of robots in a given warehouse a crucial workflow for
+        Fetchcore users was annotating the map such that robots would avoid
+        certain locations, be aware of the names of specific points, and be
+        guided along preferred paths. Redux was used initially to provide
+        easy undo-redo functionality during annotation but quickly became an
+        indispensable tool for state management and decoupling components.
+    </p>
+    <img src="images/fetchcore-map-ui.png"/>
+    <p>
+        A later incarnation of the map annotation interface.
+    </p>
+    <p>
+        The most challenging aspect of developing this UI was the interface
+        between React and the mapping component. Initially it was developed
+        using <a href="https://leafletjs.com/">Leaflet</a> which did not have
+        React integration at the time. Leaflet provided a scalable tiled map
+        paradigm, mobile support out of the box, and numerous plugins. Drawing
+        plugins were initially used to provide users a way to mark out no-go
+        areas on the map for the robots, lanes they should use for travel,
+        and destinations. Eventually our needs diverged from the functionality
+        Leaflet provided and we rebuilt the mapping component from scratch
+        on top of <a href="http://paperjs.org/">Paper.js</a>. This did not
+        relieve the core tension between the declarative paradigm of React and
+        the imperative structure of our mapping component, but allowed us a 
+        great deal of flexibility in design.
+    </p>
+    <h2>Growth</h2>
+    <p>
+        While I was the sole frontend developer for the very first generation
+        of Fetchcore, subsequent revisions would not have been possible without
+        a growing team of talented developers we recruited as well as the
+        services of <a href="https://cogniance.com/">Cogniance</a>. Managing a 
+        globally distributed team on a project with continually expanding 
+        ambitions was one of the more challenging things I've ever done. I am 
+        proud of what that team was able to accomplish. Subsequent to the 
+        release of several major revisions to Fetchcore, Fetch secured an 
+        additional $25M led by <a href="https://swayvc.com/">Sway Ventures</a>. 
+        In no little part, I'm sure, due to Fetchcore. [end sarcasm]
+    </p>
+</body>
+</html>
