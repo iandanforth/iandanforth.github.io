@@ -67,13 +67,18 @@
         the machine learning community.
     </p>
 
-    <h2>Research Interests</h2>
     <p>
-        <strong>Generalization</strong> - How do we create a single agent which 
-        can accomplish multiple tasks? What is the environment in which such an 
-        agent will naturally learn component abilities which will enable it to 
-        repeatably gain a wide variety of skills?
+        <strong>MuscledAgents</strong> (<a href="https://github.com/iandanforth/muscledagents">github</a>) - MuJoCo environments rigged with muscles (tendons) which use PyMuscle 
+        fatigable muscle models.
     </p>
+    <img src="images/muscled-ant.png" alt="Muscle rigged ant model"/>
+    <p>
+        Each environment replaces motor actuators in the original model with tendon
+        actuators (soon to be MuJoCo 2.0 muscles) and adds a fatigue based penalty
+        to the reward function.
+    </p>
+
+    <h2>Research Interests</h2>
     <p>
         <strong>Muscle Control</strong> - Controlling muscles is the primary 
         way biological creatures can affect the world. These are dynamic, noisy, 
@@ -83,14 +88,19 @@
         levels of fidelity to explore this task.
     </p>
     <p>
-        <strong>Learned Reward Signals</strong> - How do we augment 
-        reinforcement learning to overcome the reward shaping problem? What are 
-        the mechanisms by which an agent can learn what should constitute a 
-        reward and what should not?
+        <strong>Evolved Reward Signals</strong> - How do we augment 
+        reinforcement learning to overcome the reward shaping problem? Given
+        the <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.151.8250">Evolutionary Optimal Reward Framework</a> how do we implement environmental pressures 
+        such that agents evolve intrinsic rewards sufficient to bootstrap higher 
+        level task learning?
     </p>
     <p>
-        <strong>Lifelong Learning</strong> - How do we accomplish all of the 
-        above without suffering from catastrophic forgetting? 
+        <strong>Label Free Knowledge Preservation</strong> - Catastrophic forgetting / knowledge
+        inteference is the phenomenon where an agent's performance on previously learned
+        tasks degrades as new tasks are learned. While there have been <a href="https://arxiv.org/abs/1606.04671">several</a> 
+        <a href="https://arxiv.org/abs/1802.01569">successful</a> 
+        <a href="https://arxiv.org/abs/1902.05522">methods</a> 
+        to preserve knowledge with explicit task labels how can we extend or modify these methods such that no such label is required?
     </p>
     <h2>Past Work</h2>
     <img src="images/fetchcore-logo-260.png" alt="Fetchcore logo"/>
